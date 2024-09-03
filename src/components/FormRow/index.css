@@ -1,0 +1,12 @@
+.form-row{
+    display: flex;
+    width: 100%;
+}
+
+.item-group-row{
+    justify-content: space-between;
+}
+
+.one-item-row{
+    justify-content: start;
+}

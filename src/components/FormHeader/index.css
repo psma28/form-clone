@@ -1,0 +1,5 @@
+.title-container{
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 23px 30px;
+}
