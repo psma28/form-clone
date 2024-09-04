@@ -1,7 +1,9 @@
 :root{
-  --blue: #5672ff;
+  --primary-100: #5672ff;
+  --primary-75: #7e93fa3f;
+  --secondary-100: #495057;
+  --secondary-75: #f2f4ff;
   --white: #fafafa;
-  --gray: #495057;
   --black: #121212;
   box-sizing: border-box;
   
@@ -12,19 +14,25 @@
   font-size: 1.25rem;
   font-family: 'Encode Sans', sans-serif;
   font-weight: 500;
-  color: var(--blue);
+  color: var(--primary-100);
 }
 
 .text-help{
   font-size: 1.3rem;
   font-family: 'Calibri';
-  color: var(--gray);
+  color: var(--secondary-100);
 }
 
 .text-field-label{
   font-size: 1rem;
   font-family: 'Calibri';
   color: var(--black);
+}
+
+.text-field-label-white{
+  font-size: 1.2rem;
+  font-family: 'Calibri';
+  color: var(--white);
 }
 
 .text-header{
@@ -34,7 +42,7 @@
 }
 body {
   margin: 0;
-  background-color: #F2F4FF;
+  background-color: var(--secondary-75);
   background-image: url(../public/page-bg.svg);
   background-size: cover;
 }

@@ -8,5 +8,6 @@
 }
 
 .one-item-row{
+    width: 50%;
     justify-content: start;
 }

@@ -7,11 +7,13 @@
 
 .field-label{
     display: flex;
-    background-color: #f2f4ff;
+    background-color: var(--secondary-75);
+    align-items: center;
     border-radius: 10px 0 0 10px;
-    padding: 12px 16px;
-    width: 40%;
-    gap: 10%;
+    padding: 10px 10px;
+    gap: 5px;
+    min-width: 180px;
+    box-sizing: border-box;
 }
 
 .info-icon{
@@ -19,8 +21,8 @@
     color: white;
     align-items: center;
     justify-content: center;
-    height: 18px;
-    width: 18px;
+    min-height: 10px;
+    min-width: 10px;
     background-color: var(--black);
     border-radius: 100%;
     cursor: default;
@@ -29,20 +31,21 @@
 }
 
 .info-icon:hover{
-    background-color: var(--blue);
+    background-color: var(--primary-100);
 }
 
 
 .field-input{
     outline: 0;
     border: 0;
-    border-bottom: 1px solid var(--blue);
+    border-bottom: 1px solid var(--primary-100);
     background: transparent;
+    padding: 0 10px;
     width: 100%;
 }
 
 .field-input:focus{
-    background-color: #e0e3f1;
+    background-color: var(--primary-75);
 }
 
 .field-info{
@@ -51,7 +54,7 @@
     top: 35px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #f2f4ff;
+    background-color: var(--secondary-75);
     padding: 10px 20px;
     z-index: 100;
     border-radius: 40px;
