@@ -1,8 +1,15 @@
-import { useState } from "react";
 import "./index.css";
+import { useSelection } from "./hooks/useSelection";
 
-export function ComboBoxField({ label, placeholder, items, active }) {
-  const [selected, setSelected] = useState("");
+export function ComboBoxField({
+  label,
+  placeholder,
+  items,
+  active,
+  stateHandler,
+}) {
+  const { selected, handleSelection } = useSelection(stateHandler);
+
   return (
     <div className="field-container">
       <div className="field-label">
@@ -13,16 +20,12 @@ export function ComboBoxField({ label, placeholder, items, active }) {
         name={label}
         id={label}
         value={selected}
-        onChange={(e) => {
-          setSelected(e.value);
-        }}
+        onChange={(e) => handleSelection(label, e.target.value)}
       >
-        <option value="" label={`Seleccione ${placeholder}`} ></option>
-        {
-            items.map((item, index)=>{
-                return (<option value={item} label={item} key={index}></option>)
-            })
-        }
+        <option value="" label={`Seleccione ${placeholder}`}></option>
+        {items.map((item, index) => {
+          return <option value={item} label={item} key={index}></option>;
+        })}
       </select>
       <div></div>
     </div>

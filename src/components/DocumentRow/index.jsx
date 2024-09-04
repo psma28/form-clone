@@ -1,13 +1,16 @@
+import { InfoPopup } from "../InfoPin";
 import "./index.css";
 
-export function DocumentRow({label}){
+export function DocumentRow({label, info}){
 
     return(
-        <div className="document-row">
-            <div className="document-info text-field-label">{label}</div>
+        <article className="document-row">
+            <div className="document-info text-field-label">
+                {label}{info && <InfoPopup info={info}/>}
+            </div>
             <div className="document-upload">
                 <input className="document-input" type="file"></input>
             </div>
-        </div>
+        </article>
     );
 }

@@ -1,7 +1,6 @@
 .document-container{
-    border-radius: 10px;
-    overflow: hidden;
     box-shadow: 1px 1px 2px black; 
+    border-radius: 10px;
 }
 
 .document-header{
@@ -11,6 +10,7 @@
     align-content: center;
     justify-items: center;
     padding: 10px 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .document-header span:nth-child(odd){
@@ -24,4 +24,9 @@
 .document-content{
     display: flex;
     flex-direction: column;
+    border-radius: 10px;;
+}
+
+.document-content article:last-child{
+    border-radius: 0 0 10px 10px;
 }

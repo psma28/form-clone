@@ -16,25 +16,6 @@
     box-sizing: border-box;
 }
 
-.info-icon{
-    display: flex;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    min-height: 10px;
-    min-width: 10px;
-    background-color: var(--black);
-    border-radius: 100%;
-    cursor: default;
-    user-select: none;
-    transition: background-color ease-in-out 200ms;
-}
-
-.info-icon:hover{
-    background-color: var(--primary-100);
-}
-
-
 .field-input{
     outline: 0;
     border: 0;
@@ -42,21 +23,26 @@
     background: transparent;
     padding: 0 10px;
     width: 100%;
+    position: relative;
 }
 
 .field-input:focus{
     background-color: var(--primary-75);
 }
 
-.field-info{
+.telephone-input{
+    padding-left: 50px;
+    position: relative;
+}
+
+.telephone-input::before{
+    content: "+569";
+    display: flex;
+    visibility: visible;
     position: absolute;
-    width: 80%;
-    top: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--secondary-75);
-    padding: 10px 20px;
-    z-index: 100;
-    border-radius: 40px;
-    box-shadow: 0px 0px 10px 1px var(--black);
+    color: black;
+    top: 10px;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
 }
