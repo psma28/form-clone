@@ -15,7 +15,7 @@ export function TextField({ label, info, props, stateHandler }) {
       <input
         className={
           "field-input text-field-label" +
-          (getFieldStatus() === true ? " disabled-input" : "") +
+          (getFieldStatus() === false ? " disabled-input" : "") +
           ({ ...props }.type === "tel" ? " telephone-input" : "")
         }
         type={{ ...props }.type}

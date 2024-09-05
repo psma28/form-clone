@@ -4,24 +4,24 @@ export const FieldAccessContext = createContext();
 
 export const FieldAccessProvider = ({children})=>{
 
-    const [disabled, setDisabled] = useState(true);
+    const [enabled, setEnabled] = useState(false);
 
     const toggleFieldAccess = ()=>{
-        setDisabled(!disabled);
+        setEnabled(!enabled);
     };
 
     const setFieldAccess = (value)=>{
-        setDisabled(value);
+        setEnabled(value);
     };
 
     const getFieldStatus = ()=>{
-        return disabled ;
+        return enabled ;
     };
 
     useEffect(()=>{
-        console.log("FieldStatus", disabled);
+        console.log("FieldStatus", enabled);
         
-    },[disabled]);
+    },[enabled]);
 
     return(
         <FieldAccessContext.Provider value={{toggleFieldAccess, setFieldAccess, getFieldStatus}}>

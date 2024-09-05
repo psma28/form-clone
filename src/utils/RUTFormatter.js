@@ -1,7 +1,7 @@
 /**
- * 
+ * Formats text input to the RUT format
  * @param {input: String} input 
- * @returns 
+ * @returns Sring
  */
 export function RUTFormatter (input){
     const letters = getValue(input).split("")

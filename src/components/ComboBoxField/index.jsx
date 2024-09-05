@@ -14,7 +14,7 @@ export function ComboBoxField({ label, placeholder, items, stateHandler }) {
       <select
         className={
           "field-select text-field-label " +
-          (getFieldStatus() === true ? "disabled-combobox" : "")
+          (getFieldStatus() === false ? "disabled-combobox" : "")
         }
         name={label}
         id={label}
