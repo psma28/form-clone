@@ -26,23 +26,14 @@
     position: relative;
 }
 
+.disabled-input{
+    background-color: var(--secondary-80);
+}
+
 .field-input:focus{
     background-color: var(--primary-75);
 }
 
 .telephone-input{
     padding-left: 50px;
-    position: relative;
-}
-
-.telephone-input::before{
-    content: "+569";
-    display: flex;
-    visibility: visible;
-    position: absolute;
-    color: black;
-    top: 10px;
-    width: 100px;
-    height: 100px;
-    z-index: 1000;
 }

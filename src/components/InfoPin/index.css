@@ -20,7 +20,7 @@
 .field-info{
     position: absolute;
     min-width: 500px;
-    top:35px;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--tertiary-75);

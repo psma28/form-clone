@@ -1,25 +1,25 @@
 import "./index.css";
 import { useSelection } from "./hooks/useSelection";
+import { useContext } from "react";
+import { FieldAccessContext } from "../../context/FieldAccessContext";
 
-export function ComboBoxField({
-  label,
-  placeholder,
-  items,
-  active,
-  stateHandler,
-}) {
+export function ComboBoxField({ label, placeholder, items, stateHandler }) {
   const { selected, handleSelection } = useSelection(stateHandler);
-
+  const {getFieldStatus} = useContext(FieldAccessContext);
   return (
     <div className="field-container">
       <div className="field-label">
         <span className="text-field-label">{label}</span>
       </div>
       <select
-        className="field-select text-field-label"
+        className={
+          "field-select text-field-label " +
+          (getFieldStatus() === true ? "disabled-combobox" : "")
+        }
         name={label}
         id={label}
         value={selected}
+        disabled = {getFieldStatus()}
         onChange={(e) => handleSelection(label, e.target.value)}
       >
         <option value="" label={`Seleccione ${placeholder}`}></option>
