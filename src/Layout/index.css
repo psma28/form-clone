@@ -1,3 +1,7 @@
+.layout-container{
+    position: relative;
+}
+
 .container-fluid{
     width: 80%;
     margin: auto;

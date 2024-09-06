@@ -3,7 +3,7 @@ import "./index.css";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { useCheckBox } from "./hooks/useCheckBox";
 
-export const CheckBoxField = ({ label, items, stateHandler }) => {
+export const CheckBoxField = ({ id, label, items, formHandler }) => {
   const { getFieldStatus } = useContext(FieldAccessContext);
   const { handleSelection, getSelection } = useCheckBox();
 
@@ -27,7 +27,7 @@ export const CheckBoxField = ({ label, items, stateHandler }) => {
                 checked={getSelection() === item}
                 onChange={() => {
                   handleSelection(item);
-                  stateHandler(label, item);
+                  formHandler(id, item);
                 }}
               />
               {item}

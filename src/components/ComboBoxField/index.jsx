@@ -3,8 +3,8 @@ import { useSelection } from "./hooks/useSelection";
 import { useContext } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 
-export function ComboBoxField({ label, placeholder, items, stateHandler }) {
-  const { selected, handleSelection } = useSelection(stateHandler);
+export function ComboBoxField({ id, label, placeholder, items, formHandler }) {
+  const { selected, handleSelection } = useSelection(formHandler);
   const { getFieldStatus } = useContext(FieldAccessContext);
   return (
     <div className="field-container">
@@ -20,7 +20,7 @@ export function ComboBoxField({ label, placeholder, items, stateHandler }) {
         id={label}
         value={selected}
         disabled={!getFieldStatus()}
-        onChange={(e) => handleSelection(label, e.target.value)}
+        onChange={(e) => handleSelection(id, e.target.value)}
       >
         <option value="" label={`Seleccione ${placeholder}`}></option>
         {items.map((item, index) => {

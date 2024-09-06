@@ -9,7 +9,6 @@
   --tertiary-100: #f7ca90;
   --tertiary-75: #fce6c9;
   box-sizing: border-box;
-  
 }
 
 .font-calibri{
@@ -48,15 +47,17 @@
 }
 body {
   margin: 0;
+  height: 100%;
   width: 100%;
   background-color: var(--secondary-75);
   background-image: url(../public/page-bg.svg);
   background-size: cover;
+  
 }
 
 html{
-  display: block;
   width: 100%;
+  overflow-x: hidden;
 }
 
 
