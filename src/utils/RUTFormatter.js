@@ -1,7 +1,7 @@
 /**
- * Formats text input to the RUT format
+ * Formats text <input> field to the RUT format
  * @param {input: String} input 
- * @returns Sring
+ * @returns String
  */
 export function RUTFormatter (input){
     const letters = getValue(input).split("")
@@ -18,6 +18,11 @@ export function RUTFormatter (input){
     return letters.join("");
 }
 
+/**
+ * Gets the RUT <input> field dotless and hyphenless form
+ * @param {input: String} input 
+ * @returns String
+ */
 export function getValue(input){
     var out = '';
     var filtro = '1234567890kK';

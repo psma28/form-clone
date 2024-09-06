@@ -5,7 +5,7 @@ import { FieldAccessContext } from "../../context/FieldAccessContext";
 
 export function ComboBoxField({ label, placeholder, items, stateHandler }) {
   const { selected, handleSelection } = useSelection(stateHandler);
-  const {getFieldStatus} = useContext(FieldAccessContext);
+  const { getFieldStatus } = useContext(FieldAccessContext);
   return (
     <div className="field-container">
       <div className="field-label">
@@ -19,7 +19,7 @@ export function ComboBoxField({ label, placeholder, items, stateHandler }) {
         name={label}
         id={label}
         value={selected}
-        disabled = {getFieldStatus()}
+        disabled={!getFieldStatus()}
         onChange={(e) => handleSelection(label, e.target.value)}
       >
         <option value="" label={`Seleccione ${placeholder}`}></option>

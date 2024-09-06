@@ -8,11 +8,11 @@ export const RUTIndicators = {
         color: "rut-failed"
     },
     verified: {
-        message: "El RUN ingresado no se encuentra en el sistema de postulación. Por favor complete sus datos para postular.",
+        message: "RUT verificado. Complete el formulario.",
         color: "rut-verified"
     }, 
     found: {
-        message: "Revise y/o actualice sus datos, luego envíe su postulación.",
+        message: "RUT usado previamente. Verifique sus datos y complete la solicitud.",
         color: "rut-verified"
     },  
 }

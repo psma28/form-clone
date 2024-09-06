@@ -1,11 +1,11 @@
-.field-container{
+.checkbox-container{
     display: flex;
     width: 100%;
     padding: 0px 15px;
-    position: relative;
+    box-sizing: border-box;
 }
 
-.field-label{
+.checkbox-label{
     display: flex;
     background-color: var(--secondary-75);
     align-items: center;
@@ -16,20 +16,21 @@
     box-sizing: border-box;
 }
 
-.disabled-combobox{
-    background-color: var(--secondary-100);
-}
-
-.field-select{
-    border-radius: 0 10px 10px 0;
-    outline: 0;
-    border: 0;
-    border-bottom: 1px solid var(--primary-100);
+.checkbox-items{
+    display: flex;
     width: 100%;
-    padding: 0 10px;
-    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-100);
+    box-sizing: border-box;
 }
 
-.field-select:focus{
-    background-color: #e0e3f1;
+.checkbox-element{
+    display: flex;
+    align-items: center;
+}
+
+.disabled-checkbox{
+    background-color: var(--secondary-80);
 }

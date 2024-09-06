@@ -1,5 +1,6 @@
 import "./App.css";
 import { Layout } from "./Layout";
+import { CheckBoxField } from "./components/CheckBoxField";
 import { ComboBoxField } from "./components/ComboBoxField";
 import { DocumentManager } from "./components/DocumentManager";
 import { DocumentRow } from "./components/DocumentRow";
@@ -24,6 +25,11 @@ function App() {
         />
         <RUTField />
         <FormStructure title="Datos Personales">
+            <CheckBoxField
+            stateHandler={handleForm}
+              label="Cargo(s) a postular"
+              items={["Examinador", "Apoyo técnico", "Supervisor"]}
+            />
           <FormRow>
             <TextField label="Nombres" stateHandler={handleForm} />
             <TextField

@@ -1,31 +1,17 @@
 import "./index.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
-import { getValue, RUTFormatter } from "../../utils/RUTFormatter";
-import { validateRUT } from "../../utils/RUTValidator";
-import { RUTIndicators } from "./data/RUTIndicators";
+import { RUTFormatter } from "../../utils/RUTFormatter";
+import { useRUTField } from "./hook/useRUTField.jsx" 
 
 export const RUTField = () => {
   const { setFieldAccess } = useContext(FieldAccessContext);
-
-  const [value, setValue] = useState("");
-  const [indicator, setIndicator] = useState(RUTIndicators.waiting);
-
-  const handleIndicator = (status) => {
-    setIndicator(status);
-  };
-  const handleInputChange = (value) => {
-    setValue(value);
-  };
-  const handleRUTVerification = () => {
-    if (validateRUT(getValue(value))) {
-      handleIndicator(RUTIndicators.verified);
-      setFieldAccess(true);
-    } else {
-      handleIndicator(RUTIndicators.failed);
-      setFieldAccess(false);
-    }
-  };
+  const { 
+    inputChangeHandler, 
+    verificateRUT, 
+    indicator, 
+    rutValue
+  } = useRUTField(setFieldAccess);
 
   return (
     <div className="rut-field">
@@ -38,14 +24,14 @@ export const RUTField = () => {
             type="text"
             maxLength={12}
             placeholder="xx.xxx.xxx-x"
-            value={RUTFormatter(value)}
+            value={RUTFormatter(rutValue)}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                handleRUTVerification();
+                verificateRUT();
               }
             }}
-            onChange={(e) => handleInputChange(e.target.value)}
-            onBlur={() => handleRUTVerification()}
+            onChange={(e) => inputChangeHandler(e.target.value)}
+            onBlur={() => verificateRUT()}
           />
         </div>
         <div className="rut-indicator">
