@@ -1,0 +1,75 @@
+{
+    "forms": [
+        {
+            "id": 1,
+            "title": "FORMULARIO DE POSTULACIÓN - ECTP 2024",
+            "form-intro": "¡Bienvenido/a!\nPara poder postular, debe completar el siguiente formulario.\nComo primer paso, ingrese su RUT para poder continuar",
+            "form-groups": [
+                {
+                    "component": "form-structure",
+                    "label": "Datos Personales",
+                    "content": [
+                        {
+                            "component": "checkbox",
+                            "id": "cargo-postulación",
+                            "label": "Cargo(s) a postular",
+                            "items": [
+                                {
+                                    "label": "Examinador",
+                                    "value": "examinador"
+                                },
+                                {
+                                    "label": "Apoyo técnico",
+                                    "value": "apoyo-tecnico"
+                                },
+                                {
+                                    "label": "Supervisor",
+                                    "value": "supervisor"
+                                }
+                            ]
+                        },
+                        {
+                            "component": "form-row",
+                            "content": [
+                                {
+                                    "component": "text",
+                                    "id": "nombres",
+                                    "label": "Nombres",
+                                    "validators": [
+                                        "letter", "completion"
+                                    ]
+                                },
+                                {
+                                    "component": "text",
+                                    "id": "nombre-social",
+                                    "label": "Nombre Social",
+                                    "info": "(Opcional) Corresponde a nombre utilizado por una persona en razón de su expresión de género y que difiere de su nombre legal."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "FORMULARIO DE POSTULACIÓN - EDD",
+            "form-intro": "¡Bienvenido/a!\nPara poder postular, debe completar el siguiente formulario.\nComo primer paso, ingrese su RUT para poder continuar"
+        },
+        {
+            "id": 3,
+            "title": "FORMULARIO DE POSTULACIÓN - ECTP 2024",
+            "form-intro": "¡Bienvenido/a!\nPara poder postular, debe completar el siguiente formulario.\nComo primer paso, ingrese su RUT para poder continuar"
+        },
+        {
+            "id": 4,
+            "title": "FORMULARIO DE POSTULACIÓN - ECTP 2024",
+            "form-intro": "¡Bienvenido/a!\nPara poder postular, debe completar el siguiente formulario.\nComo primer paso, ingrese su RUT para poder continuar"
+        },
+        {
+            "id": 5,
+            "title": "FORMULARIO DE POSTULACIÓN - ECTP 2024",
+            "form-intro": "¡Bienvenido/a!\nPara poder postular, debe completar el siguiente formulario.\nComo primer paso, ingrese su RUT para poder continuar"
+        }
+    ]
+}

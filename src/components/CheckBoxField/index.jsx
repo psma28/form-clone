@@ -6,7 +6,8 @@ import { useCheckBox } from "./hooks/useCheckBox";
 export const CheckBoxField = ({ id, label, items, formHandler }) => {
   const { getFieldStatus } = useContext(FieldAccessContext);
   const { handleSelection, getSelection } = useCheckBox();
-
+  console.log("CREANDO CHECKBOX");
+  
   return (
     <div className="checkbox-container">
       <div className="checkbox-label">
@@ -24,13 +25,13 @@ export const CheckBoxField = ({ id, label, items, formHandler }) => {
               <input
                 type="checkbox"
                 disabled={!getFieldStatus()}
-                checked={getSelection() === item}
+                checked={getSelection() === item.value}
                 onChange={() => {
-                  handleSelection(item);
-                  formHandler(id, item);
+                  handleSelection(item.value);
+                  formHandler(id, item.value);
                 }}
               />
-              {item}
+              {item.label}
             </label>
           );
         })}
