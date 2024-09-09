@@ -6,8 +6,6 @@ import { useCheckBox } from "./hooks/useCheckBox";
 export const CheckBoxField = ({ id, label, items, formHandler }) => {
   const { getFieldStatus } = useContext(FieldAccessContext);
   const { handleSelection, getSelection } = useCheckBox();
-  console.log("CREANDO CHECKBOX");
-  
   return (
     <div className="checkbox-container">
       <div className="checkbox-label">

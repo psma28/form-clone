@@ -24,7 +24,7 @@ export function ComboBoxField({ id, label, placeholder, items, formHandler }) {
       >
         <option value="" label={`Seleccione ${placeholder}`}></option>
         {items.map((item, index) => {
-          return <option value={item} label={item} key={index}></option>;
+          return <option value={item.value} label={item.label} key={index}></option>;
         })}
       </select>
       <div></div>
