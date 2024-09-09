@@ -19,8 +19,15 @@
 .form-fields{
     background-color: var(--white);
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 30px;
     border-radius: 0 0 10px 10px;
+}
+
+@media (max-width: 1000px){
+    .form-fields{
+        grid-template-columns: 1fr;
+
+    }
 }

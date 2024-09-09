@@ -1,13 +1,10 @@
 .form-row{
-    display: flex;
-    width: 100%;
+    grid-column: span 2;
 }
 
-.item-group-row{
-    justify-content: space-between;
-}
+@media (max-width: 1000px){
+    .form-row{
+        grid-column: span 1;
+    }
 
-.one-item-row{
-    width: 50%;
-    justify-content: start;
 }

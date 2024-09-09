@@ -1,6 +1,6 @@
+import "./index.css";
 import { useContext } from "react";
 import { InfoPopup } from "../InfoPin";
-import "./index.css";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { dumbValidator } from "../../services/validators/dumbValidator";
 

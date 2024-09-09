@@ -1,12 +1,10 @@
+import "./index.css";
 import { InfoPopup } from "../InfoPin";
 import { useContext } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 
-import "./index.css";
-
 export function DocumentRow({ id, label, info, formHandler }) {
   const { getFieldStatus } = useContext(FieldAccessContext);
-
   return (
     <article className="document-row">
       <div className="document-info text-field-label">

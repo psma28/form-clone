@@ -5,6 +5,7 @@ import { TextField } from "../../components/TextField";
 import { validatorMapper } from "./ValidatorMapper";
 import { DocumentManager } from "../../components/DocumentManager";
 import { DocumentRow } from "../../components/DocumentRow";
+import { BlankComponent } from "../../components/BlankComponent";
 
 export const componentGenerator = (components, formHandler) => {
   const componentContent = components.content;
@@ -59,7 +60,7 @@ export const componentGenerator = (components, formHandler) => {
           />
         );
       default:
-        return <></>;
+        return <BlankComponent/>;
     }
   });
 };
