@@ -6,6 +6,7 @@ import { validatorMapper } from "./ValidatorMapper";
 import { DocumentManager } from "../../components/DocumentManager";
 import { DocumentRow } from "../../components/DocumentRow";
 import { BlankComponent } from "../../components/BlankComponent";
+import { NestedComboBoxGenerator } from "../../components/NestedComboBox";
 
 export const componentGenerator = (components, formHandler) => {
   const componentContent = components.content;
@@ -45,6 +46,8 @@ export const componentGenerator = (components, formHandler) => {
             formHandler={formHandler}
           />
         );
+      case "nested-combobox":
+        return <NestedComboBoxGenerator key={element.id} data={element.content}/>  
       case "form-row":
         return <FormRow key={Math.random()}>{componentGenerator(element, formHandler)}</FormRow>;
       case "document-manager":

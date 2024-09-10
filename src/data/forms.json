@@ -244,6 +244,132 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "component": "form-structure",
+                    "label": "Area Instituciones",
+                    "content": [
+                        {
+                            "component": "nested-combobox",
+                            "id": "institutions-comboboxes",
+                            "content": [
+                                {
+                                    "id": "institucion-combobox",
+                                    "placeholder": "institución",
+                                    "label": "Institución",
+                                    "items": [
+                                        {
+                                            "id": "escuela",
+                                            "label": "Escuela",
+                                            "value": "escuela",
+                                            "events": [
+                                                {
+                                                    "target": "escuelas-combobox",
+                                                    "payload": [
+                                                        {
+                                                            "id": "colegio-a",
+                                                            "label": "Colegio A",
+                                                            "value": "colegio-a",
+                                                            "events": []
+                                                        },
+                                                        {
+                                                            "id": "colegio-b",
+                                                            "label": "Colegio B",
+                                                            "value": "colegio-b",
+                                                            "events": []
+                                                        },
+                                                        {
+                                                            "id": "colegio-c",
+                                                            "label": "Colegio C",
+                                                            "value": "colegio-c",
+                                                            "events": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "target": "grado-escuela-combobox",
+                                                    "payload": [
+                                                        {
+                                                            "id": "primaria",
+                                                            "label": "Primaria",
+                                                            "value": "primaria",
+                                                            "events": []
+                                                        },
+                                                        {
+                                                            "id": "secundaria",
+                                                            "label": "Secundaria",
+                                                            "value": "secundaria",
+                                                            "events": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "universidad",
+                                            "label": "Universidad",
+                                            "value": "universidad",
+                                            "events": [
+                                                {
+                                                    "target": "universidades-combobox",
+                                                    "payload": [
+                                                        {
+                                                            "id": "universidad-a",
+                                                            "label": "Universidad A",
+                                                            "value": "universidad-a",
+                                                            "events": []
+                                                        },
+                                                        {
+                                                            "id": "universidad-b",
+                                                            "label": "Universidad B",
+                                                            "value": "universidad-b",
+                                                            "events": [
+                                                                {
+                                                                    "target": "region-universidad-b-combobox",
+                                                                    "payload": [
+                                                                        {
+                                                                            "id": "ubicación-a",
+                                                                            "label": "Ubicación A",
+                                                                            "value": "ubicación-a",
+                                                                            "events": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "escuelas-combobox",
+                                    "label": "Escuela",
+                                    "placeholder": "escuela",
+                                    "items": []
+                                },
+                                {
+                                    "id": "grado-escuela-combobox",
+                                    "label": "Grado",
+                                    "placeholder": "grado",
+                                    "items": []
+                                },
+                                {
+                                    "id": "universidades-combobox",
+                                    "label": "Universidad",
+                                    "placeholder": "universidad",
+                                    "items": []
+                                },
+                                {
+                                    "id": "region-universidad-b-combobox",
+                                    "label": "Región especial",
+                                    "placeholder": "región",
+                                    "items": []
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
