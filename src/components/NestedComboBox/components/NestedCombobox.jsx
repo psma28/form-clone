@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { FieldAccessContext } from "../../../context/FieldAccessContext";
 import "./index.css";
+import { useNestedCombobox } from "./hooks/useNestedCombobox";
 
 export const NestedCombobox = ({
   id,
@@ -11,28 +12,14 @@ export const NestedCombobox = ({
   events = [],
 }) => {
   const { getFieldStatus } = useContext(FieldAccessContext);
-  const [selection, setSelection] = useState("");
-  const [ items, setItems ] = useState(comboboxSchema.items);
-
-  useEffect(() => {
-    setSelection("");
-    setItems(comboboxSchema.items)
-  }, [comboboxSchema.items]);
-
-  const getEvents = (item) => {
-    return item?.events ?? [];
-
-  };
-
-  const getItem = (itemId) => {
-    return items.find((element) => ""+element.id === itemId);
-  }
+  const { selection, setSelection, getItemFromSchema, getEvents, items } =
+    useNestedCombobox(comboboxSchema.items);
 
   const handleSelection = (itemId) => {
     setSelection(itemId);
-    const fullItem = getItem(itemId);
+    const fullItem = getItemFromSchema(itemId);
     const incomingEvents = getEvents(fullItem);
-    eventTrigger(id, fullItem.value,[...events,...incomingEvents]);
+    eventTrigger(id, fullItem.value, [...events, ...incomingEvents]);
   };
 
   if (!items || items.length === 0) return null;

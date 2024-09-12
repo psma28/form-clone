@@ -14,7 +14,7 @@
                             "content": [
                                 {
                                     "component": "checkbox",
-                                    "id": "cargo-postulación",
+                                    "id": "cargo-postulacion",
                                     "label": "Cargo(s) a postular",
                                     "items": [
                                         {

@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
 import { formBrowser } from "../utils/formBrowser";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { LoadingProvider } from "../context/LoadingContext";
@@ -10,9 +9,9 @@ import { RUTField } from "../components/RUTField";
 import { componentGenerator } from "./utils/ComponentGenerator";
 import { FormStructure } from "../components/FormStructure";
 import { SumbmitButton } from "../components/SubmitButton";
+import { FormHandlerProvider } from "../context/FormHandlerContext";
 
 export const FormFactory = () => {
-  const { handleForm, sendForm } = useForm();
   const { formId } = useParams();
   const form = formBrowser(formId);
 
@@ -23,22 +22,24 @@ export const FormFactory = () => {
   return (
     <LoadingProvider>
       <FieldAccessProvider>
-        <Layout title={form.title}>
-          <FormHelpText text={form["form-intro"]} />
-          <RUTField />
-          {form["form-groups"].map((structure) => {
-            return (
-              <FormStructure
-                key={structure.label}
-                title={structure.label}
-                indication={structure.indication}
-              >
-                {componentGenerator(structure, handleForm)}
-              </FormStructure>
-            );
-          })}
-        </Layout>
-        <SumbmitButton sendForm={sendForm} />
+        <FormHandlerProvider>
+          <Layout title={form.title}>
+            <FormHelpText text={form["form-intro"]} />
+            <RUTField />
+            {form["form-groups"].map((structure) => {
+              return (
+                <FormStructure
+                  key={structure.label}
+                  title={structure.label}
+                  indication={structure.indication}
+                >
+                  {componentGenerator(structure)}
+                </FormStructure>
+              );
+            })}
+          </Layout>
+          <SumbmitButton />
+        </FormHandlerProvider>
       </FieldAccessProvider>
     </LoadingProvider>
   );

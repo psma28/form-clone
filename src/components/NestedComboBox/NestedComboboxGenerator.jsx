@@ -4,11 +4,12 @@ import { comboboxResponseMapper } from "../../utils/ComboboxResponseMapper";
 import { NestedCombobox } from "./components/NestedCombobox";
 import { useComboboxEventQueue } from "./hooks/useComboboxEventQueue";
 import { useNestedSchema } from "./hooks/useNestedSchema";
-import { LoadingContext } from "../../context/LoadingContext"; 
+import { LoadingContext } from "../../context/LoadingContext";
 
 export const NestedComboBoxGenerator = ({ data }) => {
   const { pushEvents, collapseEvents } = useComboboxEventQueue();
-  const { getNestSchema, getCombobox, updateBoxContent } = useNestedSchema(data);
+  const { getNestSchema, getCombobox, updateBoxContent } =
+    useNestedSchema(data);
   const { setLoading } = useContext(LoadingContext);
   /**
    * This function manages the status of the event queue, meaning that
@@ -21,7 +22,7 @@ export const NestedComboBoxGenerator = ({ data }) => {
    * @param {String} selectionValue
    * @param {Array} incomingEvents
    */
-  const manageEventQueue = (actorId, selectionValue,incomingEvents) => {
+  const manageEventQueue = (actorId, selectionValue, incomingEvents) => {
     if (incomingEvents.length === 0) return;
     const rollbackEventClusters = collapseEvents(actorId).reverse();
     rollbackEventClusters.forEach((eventCluster) => {
@@ -34,14 +35,16 @@ export const NestedComboBoxGenerator = ({ data }) => {
 
     incomingEvents.forEach((event) => {
       const targetId = event.target;
-      if( Array.isArray(event.payload)) updateBoxContent(targetId,event.payload);
-      
-      if (typeof event.payload === "string"){
-        setLoading(true)
+      if (Array.isArray(event.payload))
+        updateBoxContent(targetId, event.payload);
+
+      if (typeof event.payload === "string") {
+        setLoading(true);
         functionExecutor(event.payload, selectionValue)
-        .then((res) => {
-          updateBoxContent(targetId,comboboxResponseMapper(res))
-        }).then(()=> setLoading(false))
+          .then((res) => {
+            updateBoxContent(targetId, comboboxResponseMapper(res));
+          })
+          .then(() => setLoading(false));
       }
     });
     pushEvents(actorId, incomingEvents);

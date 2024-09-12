@@ -8,7 +8,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/form/:formId" element={<FormFactory />} />
-        <Route path="/*" element={<NotFoundPage message={"Página no encontrada"}/>} />
+        <Route
+          path="/*"
+          element={<NotFoundPage message={"Página no encontrada"} />}
+        />
       </Routes>
     </BrowserRouter>
   );

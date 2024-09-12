@@ -1,52 +1,52 @@
-.field-container{
-    display: flex;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
+.field-container {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.field-label{
-    display: flex;
-    background-color: var(--secondary-75);
-    align-items: center;
-    border-radius: 10px 0 0 10px;
-    padding: 10px 10px;
-    gap: 5px;
-    min-width: 180px;
-    box-sizing: border-box;
+.field-label {
+  display: flex;
+  background-color: var(--secondary-75);
+  align-items: center;
+  border-radius: 10px 0 0 10px;
+  padding: 10px 10px;
+  gap: 5px;
+  min-width: 180px;
+  box-sizing: border-box;
 }
 
-.field-input{
-    border-radius: 0 10px 10px 0;
-    border-bottom: 1px solid var(--primary-100);
-    padding: 0 10px;
-    width: 100%;
-    position: relative;
+.field-input {
+  border-radius: 0 10px 10px 0;
+  border-bottom: 1px solid var(--primary-100);
+  padding: 0 10px;
+  width: 100%;
+  position: relative;
 }
 
-.field-input span{
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+.field-input span {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.field-input input{
-    background: transparent;
-    outline: 0;
-    border: 0;
-    width: 100%;
-    height: 100%;
+.field-input input {
+  background: transparent;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.disabled-input{
-    background-color: var(--secondary-80);
+.disabled-input {
+  background-color: var(--secondary-80);
 }
 
-.field-input:focus-within{
-    background-color: var(--primary-75);
+.field-input:focus-within {
+  background-color: var(--primary-75);
 }
 
-.telephone-input{
-    padding-left: 50px;
+.telephone-input {
+  padding-left: 50px;
 }

@@ -1,10 +1,9 @@
-.form-row{
-    grid-column: span 2;
+.form-row {
+  grid-column: span 2;
 }
 
-@media (max-width: 1000px){
-    .form-row{
-        grid-column: span 1;
-    }
-
+@media (max-width: 1000px) {
+  .form-row {
+    grid-column: span 1;
+  }
 }

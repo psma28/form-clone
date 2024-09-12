@@ -1,24 +1,25 @@
-import { useForm } from "./hooks/useForm";
-import { LoadingProvider } from "./context/LoadingContext";
-import { FieldAccessProvider } from "./context/FieldAccessContext";
-import { Layout } from "./Layout";
-import { FormHelpText } from "./components/FormHelpText";
-import { RUTField } from "./components/RUTField";
-import { TextField } from "./components/TextField";
-import { FormStructure } from "./components/FormStructure";
-import { CheckBoxField } from "./components/CheckBoxField";
-import { ComboBoxField } from "./components/ComboBoxField";
-import { DocumentManager } from "./components/DocumentManager";
-import { DocumentRow } from "./components/DocumentRow";
-import { FormRow } from "./components/FormRow";
-import { SumbmitButton } from "./components/SubmitButton";
-import { completionValidator } from "./services/validators/completionValidator";
-import { emailValidator } from "./services/validators/emailValidator";
-import { letterCharValidator } from "./services/validators/letterCharValidator";
-import { numericCharValidator } from "./services/validators/numericCharValidator";
+import { FieldAccessProvider } from "../../context/FieldAccessContext";
+import { LoadingProvider } from "../../context/LoadingContext";
+import { useForm } from "../../hooks/useForm";
+import { Layout } from "../../Layout";
+import { completionValidator } from "../../services/validators/completionValidator";
+import { emailValidator } from "../../services/validators/emailValidator";
+import { letterCharValidator } from "../../services/validators/letterCharValidator";
+import { numericCharValidator } from "../../services/validators/numericCharValidator";
+import { CheckBoxField } from "../CheckBoxField";
+import { ComboBoxField } from "../ComboBoxField";
+import { DocumentManager } from "../DocumentManager";
+import { DocumentRow } from "../DocumentRow";
+import { FormHelpText } from "../FormHelpText";
+import { FormRow } from "../FormRow";
+import { FormStructure } from "../FormStructure";
+import { RUTField } from "../RUTField";
+import { SumbmitButton } from "../SubmitButton";
+import { TextField } from "../TextField";
 
-export const CloneForm = ()=>{
-    const { handleForm, sendForm } = useForm();
+
+export const CloneForm = () => {
+  const { handleForm, sendForm } = useForm();
 
   return (
     <LoadingProvider>
@@ -31,12 +32,16 @@ export const CloneForm = ()=>{
           />
           <RUTField />
           <FormStructure title="Datos Personales">
+          <FormRow>
             <CheckBoxField
               id="cargo-postulacion"
               formHandler={handleForm}
               label="Cargo(s) a postular"
-              items={["Examinador", "Apoyo técnico", "Supervisor"]}
+              items={[{label:"Examinador", value:"examinador"}, 
+                {label: "Apoyo técnico", value: "apoyo-tecnico"},
+                {label: "Supervisor", value: "supervisor"}]}
             />
+            </FormRow>
             <FormRow>
               <TextField
                 id="nombres"
@@ -258,4 +263,4 @@ export const CloneForm = ()=>{
       </FieldAccessProvider>
     </LoadingProvider>
   );
-}
+};

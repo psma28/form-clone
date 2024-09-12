@@ -1,31 +1,27 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 export const FieldAccessContext = createContext();
 
-export const FieldAccessProvider = ({children})=>{
+export const FieldAccessProvider = ({ children }) => {
+  const [enabled, setEnabled] = useState(false);
 
-    const [enabled, setEnabled] = useState(false);
+  const toggleFieldAccess = () => {
+    setEnabled(!enabled);
+  };
 
-    const toggleFieldAccess = ()=>{
-        setEnabled(!enabled);
-    };
+  const setFieldAccess = (value) => {
+    setEnabled(value);
+  };
 
-    const setFieldAccess = (value)=>{
-        setEnabled(value);
-    };
+  const getFieldStatus = () => {
+    return enabled;
+  };
 
-    const getFieldStatus = ()=>{
-        return enabled ;
-    };
-
-    useEffect(()=>{
-        console.log("FieldStatus", enabled);
-        
-    },[enabled]);
-
-    return(
-        <FieldAccessContext.Provider value={{toggleFieldAccess, setFieldAccess, getFieldStatus}}>
-            {children}
-        </FieldAccessContext.Provider>
-    );
-}
+  return (
+    <FieldAccessContext.Provider
+      value={{ toggleFieldAccess, setFieldAccess, getFieldStatus }}
+    >
+      {children}
+    </FieldAccessContext.Provider>
+  );
+};

@@ -1,9 +1,9 @@
-import "./index.css"
+import "./index.css";
 
-export const LoadingScreen = ()=>{
-    return(
-        <div className="loading-screen-container">
-            <div className="lds-dual-ring"></div>
-        </div>
-    )
-}
+export const LoadingScreen = () => {
+  return (
+    <div className="loading-screen-container">
+      <div className="lds-dual-ring"></div>
+    </div>
+  );
+};

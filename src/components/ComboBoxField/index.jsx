@@ -2,10 +2,12 @@ import "./index.css";
 import { useSelection } from "./hooks/useSelection";
 import { useContext } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
+import { FormHandlerContext } from "../../context/FormHandlerContext";
 
-export function ComboBoxField({ id, label, placeholder, items, formHandler }) {
-  const { selected, handleSelection } = useSelection(formHandler);
+export function ComboBoxField({ id, label, placeholder, items }) {
   const { getFieldStatus } = useContext(FieldAccessContext);
+  const { updateForm } = useContext(FormHandlerContext);
+  const { selected, handleSelection } = useSelection(updateForm);
   return (
     <div className="field-container">
       <div className="field-label">
@@ -24,7 +26,9 @@ export function ComboBoxField({ id, label, placeholder, items, formHandler }) {
       >
         <option value="" label={`Seleccione ${placeholder}`}></option>
         {items.map((item, index) => {
-          return <option value={item.value} label={item.label} key={index}></option>;
+          return (
+            <option value={item.value} label={item.label} key={index}></option>
+          );
         })}
       </select>
       <div></div>

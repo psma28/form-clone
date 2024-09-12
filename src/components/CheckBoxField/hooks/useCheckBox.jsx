@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 export const useCheckBox = () => {
-  const [selected, setSelected] = useState({});
-  const handleSelection = (value) => {
-    setSelected(value);
+  const [checked, setChecked] = useState("");
+  const handleCheck = (value) => {
+    setChecked(value);
   };
 
-  const getSelection = ()=>{
-    return selected;
-  }
+  const getCheck = () => {
+    return checked;
+  };
 
-  return {handleSelection, getSelection}
+  return { handleCheck, getCheck };
 };

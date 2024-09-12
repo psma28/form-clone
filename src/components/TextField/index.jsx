@@ -3,9 +3,17 @@ import { useContext } from "react";
 import { InfoPopup } from "../InfoPin";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { dumbValidator } from "../../services/validators/dumbValidator";
+import { FormHandlerContext } from "../../context/FormHandlerContext";
 
-export function TextField({ id, label, info, props, formHandler, validators=[dumbValidator] }) {
+export function TextField({
+  id,
+  label,
+  info,
+  props,
+  validators = [dumbValidator],
+}) {
   const { getFieldStatus } = useContext(FieldAccessContext);
+  const { updateForm } = useContext(FormHandlerContext);
   const handleInput = (content) => {
     let validation = true;
     validators.map((validator) => {
@@ -16,9 +24,9 @@ export function TextField({ id, label, info, props, formHandler, validators=[dum
     });
     console.log("Validating field", validation);
     if (validation) {
-      formHandler(id, content);
+      updateForm(id, content);
     } else {
-      formHandler(id, null);
+      updateForm(id, null);
     }
   };
 
@@ -44,7 +52,6 @@ export function TextField({ id, label, info, props, formHandler, validators=[dum
           type={{ ...props }.type}
           disabled={!getFieldStatus()}
           maxLength={{ ...props }.type === "tel" ? "8" : "30"}
-          
           onBlur={(e) => handleInput(e.target.value)}
         ></input>
       </div>

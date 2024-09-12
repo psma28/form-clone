@@ -1,8 +1,7 @@
-.help-container{
-    display: flex;
-    flex-direction: column;
-    height: 150px;
-    justify-content: space-evenly;
-    margin: auto;
+.help-container {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-evenly;
+  margin: auto;
 }
-

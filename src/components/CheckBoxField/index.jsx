@@ -2,10 +2,12 @@ import { useContext } from "react";
 import "./index.css";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { useCheckBox } from "./hooks/useCheckBox";
+import { FormHandlerContext } from "../../context/FormHandlerContext";
 
-export const CheckBoxField = ({ id, label, items, formHandler }) => {
+export const CheckBoxField = ({ id, label, items }) => {
   const { getFieldStatus } = useContext(FieldAccessContext);
-  const { handleSelection, getSelection } = useCheckBox();
+  const { updateForm } = useContext(FormHandlerContext);
+  const { handleCheck, getCheck } = useCheckBox();
   return (
     <div className="checkbox-container">
       <div className="checkbox-label">
@@ -23,10 +25,10 @@ export const CheckBoxField = ({ id, label, items, formHandler }) => {
               <input
                 type="checkbox"
                 disabled={!getFieldStatus()}
-                checked={getSelection() === item.value}
+                checked={getCheck() === item.value}
                 onChange={() => {
-                  handleSelection(item.value);
-                  formHandler(id, item.value);
+                  updateForm(id, item.value);
+                  handleCheck(item.value);
                 }}
               />
               {item.label}

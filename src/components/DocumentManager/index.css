@@ -1,33 +1,33 @@
-.document-container{
-    box-shadow: 1px 1px 2px black; 
-    border-radius: 10px;
-    grid-column: span 2;
+.document-container {
+  box-shadow: 1px 1px 2px black;
+  border-radius: 10px;
+  grid-column: span 2;
 }
 
-.document-header{
-    background-color: var(--primary-100);
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    align-content: center;
-    justify-items: center;
-    padding: 10px 0;
-    border-radius: 10px 10px 0 0;
+.document-header {
+  background-color: var(--primary-100);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-content: center;
+  justify-items: center;
+  padding: 10px 0;
+  border-radius: 10px 10px 0 0;
 }
 
-.document-header span:nth-child(odd){
-    grid-column: span 3;
+.document-header span:nth-child(odd) {
+  grid-column: span 3;
 }
 
-.document-header span:nth-child(even){
-    grid-column: span 2;
+.document-header span:nth-child(even) {
+  grid-column: span 2;
 }
 
-.document-content{
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;;
+.document-content {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
 }
 
-.document-content article:last-child{
-    border-radius: 0 0 10px 10px;
+.document-content article:last-child {
+  border-radius: 0 0 10px 10px;
 }

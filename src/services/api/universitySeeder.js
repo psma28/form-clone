@@ -29,8 +29,6 @@ export const getUniversidades = ()=>{
 }
 
 export const getUbicacionUniversidad = (name)=>{
-
-    console.log("obteniento ubicacion universidad: ", name);
     name = toNormalText(name)
     return new Promise((resolve) => {
         setTimeout(() => {

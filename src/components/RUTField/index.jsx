@@ -2,16 +2,12 @@ import "./index.css";
 import { useContext } from "react";
 import { FieldAccessContext } from "../../context/FieldAccessContext";
 import { RUTFormatter } from "../../utils/RUTFormatter";
-import { useRUTField } from "./hook/useRUTField.jsx" 
+import { useRUTField } from "./hook/useRUTField.jsx";
 
 export const RUTField = () => {
   const { setFieldAccess } = useContext(FieldAccessContext);
-  const { 
-    inputChangeHandler, 
-    verificateRUT, 
-    indicator, 
-    rutValue
-  } = useRUTField(setFieldAccess);
+  const { inputChangeHandler, verificateRUT, indicator, rutValue } =
+    useRUTField(setFieldAccess);
 
   return (
     <div className="rut-field">
