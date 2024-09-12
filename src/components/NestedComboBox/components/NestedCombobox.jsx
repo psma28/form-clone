@@ -12,25 +12,30 @@ export const NestedCombobox = ({
 }) => {
   const { getFieldStatus } = useContext(FieldAccessContext);
   const [selection, setSelection] = useState("");
-  let items = comboboxSchema.items;
+  const [ items, setItems ] = useState(comboboxSchema.items);
 
   useEffect(() => {
     setSelection("");
-  }, [items]);
+    setItems(comboboxSchema.items)
+  }, [comboboxSchema.items]);
 
-  const getEvents = (itemId) => {
-    const item = items.find((element) => element.id === itemId);
-    if(item.events === undefined || item.events === null) return [];
-    return item.events;
+  const getEvents = (item) => {
+    return item?.events ?? [];
+
   };
+
+  const getItem = (itemId) => {
+    return items.find((element) => ""+element.id === itemId);
+  }
 
   const handleSelection = (itemId) => {
     setSelection(itemId);
-    const incomingEvents = getEvents(itemId);
-    eventTrigger(id, [...events,...incomingEvents]);
+    const fullItem = getItem(itemId);
+    const incomingEvents = getEvents(fullItem);
+    eventTrigger(id, fullItem.value,[...events,...incomingEvents]);
   };
 
-  if (items.length === 0 || items === null || items === undefined) return null;
+  if (!items || items.length === 0) return null;
   return (
     <div className="field-container">
       <div className="field-label">

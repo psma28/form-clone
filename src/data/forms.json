@@ -265,26 +265,7 @@
                                             "events": [
                                                 {
                                                     "target": "escuelas-combobox",
-                                                    "payload": [
-                                                        {
-                                                            "id": "colegio-a",
-                                                            "label": "Colegio A",
-                                                            "value": "colegio-a",
-                                                            "events": []
-                                                        },
-                                                        {
-                                                            "id": "colegio-b",
-                                                            "label": "Colegio B",
-                                                            "value": "colegio-b",
-                                                            "events": []
-                                                        },
-                                                        {
-                                                            "id": "colegio-c",
-                                                            "label": "Colegio C",
-                                                            "value": "colegio-c",
-                                                            "events": []
-                                                        }
-                                                    ]
+                                                    "payload": "get-escuelas"
                                                 },
                                                 {
                                                     "target": "grado-escuela-combobox",

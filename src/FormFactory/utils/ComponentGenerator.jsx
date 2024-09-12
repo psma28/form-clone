@@ -6,7 +6,7 @@ import { validatorMapper } from "./ValidatorMapper";
 import { DocumentManager } from "../../components/DocumentManager";
 import { DocumentRow } from "../../components/DocumentRow";
 import { BlankComponent } from "../../components/BlankComponent";
-import { NestedComboBoxGenerator } from "../../components/NestedComboBox";
+import { NestedComboBoxGenerator } from "../../components/NestedComboBox/NestedComboboxGenerator";
 
 export const componentGenerator = (components, formHandler) => {
   const componentContent = components.content;

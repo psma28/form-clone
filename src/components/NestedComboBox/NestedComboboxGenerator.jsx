@@ -1,21 +1,27 @@
+import { useContext } from "react";
+import { functionExecutor } from "../../utils/APIFunctionLibrary";
+import { comboboxResponseMapper } from "../../utils/ComboboxResponseMapper";
 import { NestedCombobox } from "./components/NestedCombobox";
 import { useComboboxEventQueue } from "./hooks/useComboboxEventQueue";
 import { useNestedSchema } from "./hooks/useNestedSchema";
+import { LoadingContext } from "../../context/LoadingContext"; 
 
 export const NestedComboBoxGenerator = ({ data }) => {
   const { pushEvents, collapseEvents } = useComboboxEventQueue();
-  const { getCombobox } = useNestedSchema(data);
-
+  const { getNestSchema, getCombobox, updateBoxContent } = useNestedSchema(data);
+  const { setLoading } = useContext(LoadingContext);
   /**
    * This function manages the status of the event queue, meaning that
    * with an incoming event from certain actor (combobox id or item id)
    * the queue should update (collapse events, rollback every triggered event
    * , add incoming event(s) and execute every action that includes the
-   * combobox items adding).
+   * combobox items adding). The selecion value is the parameter introduced
+   * to the event functions as parameter.
    * @param {String} actor
+   * @param {String} selectionValue
    * @param {Array} incomingEvents
    */
-  const manageEventQueue = (actorId, incomingEvents) => {
+  const manageEventQueue = (actorId, selectionValue,incomingEvents) => {
     if (incomingEvents.length === 0) return;
     const rollbackEventClusters = collapseEvents(actorId).reverse();
     rollbackEventClusters.forEach((eventCluster) => {
@@ -28,16 +34,19 @@ export const NestedComboBoxGenerator = ({ data }) => {
 
     incomingEvents.forEach((event) => {
       const targetId = event.target;
-      const targetCombobox = getCombobox(targetId);
-      console.log("Evento incoming", event);
+      if( Array.isArray(event.payload)) updateBoxContent(targetId,event.payload);
       
-      console.log("tipo de la carga", Array.isArray(event.payload));
-      if( Array.isArray(event.payload)) targetCombobox.items = event.payload;
-      
+      if (typeof event.payload === "string"){
+        setLoading(true)
+        functionExecutor(event.payload, selectionValue)
+        .then((res) => {
+          updateBoxContent(targetId,comboboxResponseMapper(res))
+        }).then(()=> setLoading(false))
+      }
     });
     pushEvents(actorId, incomingEvents);
   };
-  const nestedComponents = data.map((combobox) => {
+  const nestedComponents = getNestSchema().map((combobox) => {
     return (
       <NestedCombobox
         id={combobox.id}
