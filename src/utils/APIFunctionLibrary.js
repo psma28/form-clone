@@ -1,7 +1,10 @@
 import { getColegios } from "../services/api/schoolSeeder";
+import { getUbicacionUniversidad, getUniversidades } from "../services/api/universitySeeder";
 
 const APIFunctionsMap = {
   "get-escuelas": { function: getColegios, args: 0 },
+  "get-universidades": { function: getUniversidades, args: 0},
+  "get-ubicacion-universidad": { function: getUbicacionUniversidad, args: 1}
 };
 
 function searchFunction(functionName) {

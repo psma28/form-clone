@@ -55,6 +55,7 @@ export const NestedComboBoxGenerator = ({ data }) => {
         comboboxSchema={combobox}
         eventTrigger={manageEventQueue}
         placeholder={combobox.placeholder}
+        events={combobox.events}
       />
     );
   });

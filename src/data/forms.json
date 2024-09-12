@@ -293,32 +293,7 @@
                                             "events": [
                                                 {
                                                     "target": "universidades-combobox",
-                                                    "payload": [
-                                                        {
-                                                            "id": "universidad-a",
-                                                            "label": "Universidad A",
-                                                            "value": "universidad-a",
-                                                            "events": []
-                                                        },
-                                                        {
-                                                            "id": "universidad-b",
-                                                            "label": "Universidad B",
-                                                            "value": "universidad-b",
-                                                            "events": [
-                                                                {
-                                                                    "target": "region-universidad-b-combobox",
-                                                                    "payload": [
-                                                                        {
-                                                                            "id": "ubicación-a",
-                                                                            "label": "Ubicación A",
-                                                                            "value": "ubicación-a",
-                                                                            "events": []
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
+                                                    "payload": "get-universidades"
                                                 }
                                             ]
                                         }
@@ -340,10 +315,16 @@
                                     "id": "universidades-combobox",
                                     "label": "Universidad",
                                     "placeholder": "universidad",
-                                    "items": []
+                                    "items": [],
+                                    "events":[
+                                        {
+                                            "target": "region-universidad-combobox",
+                                            "payload": "get-ubicacion-universidad"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "id": "region-universidad-b-combobox",
+                                    "id": "region-universidad-combobox",
                                     "label": "Región especial",
                                     "placeholder": "región",
                                     "items": []

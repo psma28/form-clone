@@ -7,14 +7,14 @@ export function comboboxResponseMapper (data){
         }));
 }
 
-function toSnakeCase(string){
+export function toSnakeCase(string){
     return string
     .replace(/([a-z])([A-Z])/g, '$1_$2') 
     .replace(/\s+/g, '_')                
     .toLowerCase();                      
 }
 
-function toNormalText(string) {
+export function toNormalText(string) {
     return string
     .replace(/_/g, ' ')
     .replace(/([a-z])([A-Z])/g, '$1 $2')
