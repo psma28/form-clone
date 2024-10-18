@@ -1,5 +1,7 @@
 ---
 description: (Documentation introduction)
+cover: .gitbook/assets/untitled.png
+coverY: 31.740293356341674
 ---
 
 # Introduction
